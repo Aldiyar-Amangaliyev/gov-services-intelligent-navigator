@@ -1,0 +1,29 @@
+version: '3.9'
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: govnav_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-govnav_kz_db}
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: govnav_backend
+    restart: unless-stopped
+    env_file:
+      - config/.env.example
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    command: uvicorn src.backend.main:app --host 0.0.0.0 --port 8000
+volumes:
+  pgdata:
