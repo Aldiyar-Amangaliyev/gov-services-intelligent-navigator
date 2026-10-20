@@ -1,0 +1,13 @@
+flowchart TB
+    Citizen["Citizen / Entrepreneur of RK\n(Primary User)"]
+    Consultant["Front-Office Consultant\n(Support Operator)"]
+    Admin["System Administrator\n(Catalog Maintainer)"]
+    subgraph GovNav["Intelligent Navigation System for Public Services of RK"]
+        Platform["GovNav KZ Web & NLP Platform\n(Next.js + FastAPI + Hybrid Python NLP + PostgreSQL)"]
+    end
+    EGov["External Official Gateways\n(eGov.kz / elicense.kz)"]
+    Citizen -- "1. Conversational query (KZ/RU/EN) & filters" --> Platform
+    Consultant -- "2. Rapid semantic lookup" --> Platform
+    Platform -- "3. Ranked service passports, checklist & next steps" --> Citizen
+    Admin -- "4. Statutory catalog updates" --> Platform
+    Platform -- "5. Direct routing to official execution URL" --> EGov

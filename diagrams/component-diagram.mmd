@@ -1,0 +1,31 @@
+flowchart TB
+    subgraph ClientLayer["Presentation Layer (React / Next.js)"]
+        SearchUI["Conversational Search Bar & Quick Prompts"]
+        FilterUI["Multi-Faceted Filter Panel"]
+        PassportUI["Service Passport & Checklist View"]
+    end
+    subgraph APILayer["Application API Layer (FastAPI)"]
+        Router["REST Controllers & Pydantic v2 Validators"]
+        CatalogSvc["Catalog & Life-Situation Service"]
+        EvalSvc["Benchmark Evaluation Controller"]
+    end
+    subgraph NLPLayer["Intelligent NLP Layer (Python)"]
+        Normalizer["Text Normalizer & Stopword Filter (spaCy)"]
+        IntentCls["Domain Intent Classifier (Scikit-learn)"]
+        SemanticRanker["Hybrid Semantic & Stem Ranker (Transformers)"]
+        NextStepEngine["Life-Situation Next-Step Graph"]
+    end
+    subgraph DataLayer["Data Persistence Layer (PostgreSQL 16)"]
+        PG[("PostgreSQL Database:\nService Passports, Checklists,\nLife Situations, Embeddings")]
+    end
+    SearchUI --> Router
+    FilterUI --> Router
+    PassportUI --> Router
+    Router --> CatalogSvc
+    Router --> Normalizer
+    Router --> EvalSvc
+    Normalizer --> IntentCls
+    Normalizer --> SemanticRanker
+    SemanticRanker --> NextStepEngine
+    CatalogSvc --> PG
+    SemanticRanker --> PG

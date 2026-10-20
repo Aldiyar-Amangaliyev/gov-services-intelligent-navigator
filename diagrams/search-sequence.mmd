@@ -1,0 +1,15 @@
+sequenceDiagram
+    actor User as Citizen (Browser)
+    participant API as FastAPI Gateway
+    participant NLP as Hybrid NLP Navigator
+    participant DB as PostgreSQL Catalog
+    User->>API: POST /api/v1/navigate/search (query, lang, filters)
+    API->>API: Validate payload via Pydantic SearchRequest
+    API->>NLP: navigate(query, applicant_type, online_only, top_k)
+    NLP->>NLP: preprocess_and_extract(query) -> normalized tokens
+    NLP->>DB: Fetch candidate service passports matching filters
+    DB-->>NLP: Candidate records & keyword/embedding index
+    NLP->>NLP: Compute hybrid semantic & stem similarity scores
+    NLP->>NLP: Detect primary category & resolve recommended_next_steps
+    NLP-->>API: Ranked passports, category, keywords, latency_ms
+    API-->>User: 200 OK NavigationResponse JSON
