@@ -1,0 +1,21 @@
+flowchart LR
+    Citizen(["Citizen / Entrepreneur"])
+    Admin(["System Administrator"])
+    subgraph SystemBoundary["Intelligent Public Services Navigator"]
+        UC1("Submit conversational query in KZ / RU / EN")
+        UC2("View semantically ranked service passports")
+        UC3("Filter catalog by category, applicant type, online status")
+        UC4("Inspect required document checklist, fee, and timeline")
+        UC5("Browse bundled Life-Situation scenarios")
+        UC6("Follow recommended next-step services")
+        UC7("Navigate to official eGov.kz / elicense.kz portal")
+        UC8("Run Baseline vs Hybrid NLP evaluation benchmark")
+        UC1 -. "include" .-> UC2
+        UC2 -. "extend" .-> UC4
+        UC4 -. "extend" .-> UC6
+        UC4 -. "extend" .-> UC7
+    end
+    Citizen --> UC1
+    Citizen --> UC3
+    Citizen --> UC5
+    Admin --> UC8
