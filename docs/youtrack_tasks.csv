@@ -1,0 +1,10 @@
+Task ID,Summary,Assignee,State,Branch,Deadline,Acceptance Criteria
+DIP-1,Initialize repository structure and configuration,Aldiyar Amangaliyev,Done,DIP-1-repo-init,2026-10-13,Created src/ docs/ diagrams/ tests/ config/ and .gitignore
+DIP-2,Write Project Proposal and define Project Scope,Aldiyar Amangaliyev,Done,DIP-2-project-proposal,2026-10-14,Completed docs/01-project-proposal.md
+DIP-5,Document Evidence of Relevance and user interviews,Aldiyar Amangaliyev,Done,DIP-3-relevance-evidence,2026-10-15,Completed docs/02-evidence-of-relevance.md with 5 user interviews
+DIP-6,Conduct Literature Review of 12 sources,Aldiyar Amangaliyev,Done,DIP-4-literature-review,2026-10-16,Completed structured table of 12 sources in docs/03-literature-review.md
+DIP-7,Complete Existing System and Technology Comparisons,Aldiyar Amangaliyev,Done,DIP-5-system-tech-comparison,2026-10-18,Completed docs/04 and docs/05 comparison matrices
+DIP-8,Specify Functional and Non-Functional Requirements,Aldiyar Amangaliyev,Done,DIP-6-requirements-spec,2026-10-19,Completed docs/06-requirements-specification.md with acceptance criteria
+DIP-9,Design System Architecture and UML/C4 Diagrams,Aldiyar Amangaliyev,Done,DIP-7-architecture-diagrams,2026-10-20,Created 4 architecture diagrams in diagrams/ and docs/07
+DIP-10,Develop UX Mockups FastAPI NLP Prototype and Pytest Suite,Aldiyar Amangaliyev,Done,DIP-8-prototype-and-mvp,2026-10-21,Implemented runnable code in src/ and 6 automated tests in tests/
+DIP-11,Create Verification Plan Risk Matrix and Supervisor Feedback log,Aldiyar Amangaliyev,Done,DIP-9-verification-and-review,2026-10-22,Completed docs 09-11 README.md and tagged pre-defense-1
